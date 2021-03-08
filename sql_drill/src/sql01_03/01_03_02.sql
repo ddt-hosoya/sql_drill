@@ -7,9 +7,10 @@
 ;
 
 ■実行文
-
+# 重複がない形でリンク元URLを取り出す
 SELECT DISTINCT
 	referer
+# アクセス記録テーブルから取得
 FROM
 	access_log
 ;

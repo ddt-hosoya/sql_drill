@@ -11,8 +11,10 @@ FROM
 誤り1:「ALL」は誤り、「DISTINCT」が正しい。
 誤り2: 重複なしの役職のみを取り出すためには「depart_id」は不要。
 
+# 重複がない形で役職を取り出す
 SELECT DISTINCT
 	class
+# 社員テーブルから取得
 FROM
 	employee
 ;

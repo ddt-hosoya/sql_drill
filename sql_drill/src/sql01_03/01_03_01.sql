@@ -7,9 +7,10 @@ FROM
 ;
 
 ■実行文
-
+# 重複がない形で都道府県名を取り出す
 SELECT DISTINCT
 	prefecture
+# アンケート回答テーブルから取得
 FROM
 	quest
 ;
