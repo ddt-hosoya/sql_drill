@@ -6,9 +6,10 @@ FROM
 	[②空欄]
 ;
 ■実行文
-
+# title列を取り出す
 SELECT
 	title
+# 書籍情報テーブルから取得
 FROM
 	books
 ;

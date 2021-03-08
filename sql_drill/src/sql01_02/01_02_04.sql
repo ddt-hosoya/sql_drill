@@ -10,10 +10,11 @@ FROM
 ■実行文
 誤り1:「SELECTS」は誤り、「SELECT」が正しい。
 誤り2:「title」と「publish」の間に「,」が必要。
-
+# title列、publish列を取り出す
 SELECT
 	title,
 	publish
+# 書籍情報テーブルから取得
 FROM
 	books
 ;

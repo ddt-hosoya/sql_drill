@@ -8,10 +8,11 @@ FROM
 ;
 
 ■実行文
-
+# 商品, 単価列を取得
 SELECT
 	p_name,
 	price
+# 商品テーブルから取得
 FROM
 	product
 ;

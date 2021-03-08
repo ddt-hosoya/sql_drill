@@ -2,11 +2,12 @@
 社員テーブル（employee）から社員の氏、名、役職を取り出す為のSQL命令を記述してみましょう。
 
 ■実行文
-
+# 社員の氏、名、役職を取り出す
 SELECT
 	l_name,
 	f_name,
 	class
+# 社員テーブルから取得
 FROM
 	employee
 ;
