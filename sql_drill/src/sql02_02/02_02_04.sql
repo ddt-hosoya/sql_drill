@@ -7,7 +7,7 @@
 #社員氏名と社員ごとの勤務時間平均を出力
 SELECT
 	CONCAT(e.l_name, e.f_name) AS 社員氏名,
-	SUM(t.work_time) / COUNT(t.s_id) AS 勤務時間平均
+	AVG(t.work_time) AS 勤務時間平均
 # 社員テーブルとタイムカードテーブルを左外部結合したデータから取得する
 FROM
 	employee AS e
@@ -25,17 +25,22 @@ ORDER BY
 ;
 ■返却値
 
+mysql> #社員氏名と社員ごとの勤務時間平均を出力
 mysql> SELECT
     -> CONCAT(e.l_name, e.f_name) AS 社員氏名,
-    -> SUM(t.work_time) / COUNT(t.s_id) AS 勤務時間平均
+    -> AVG(t.work_time) AS 勤務時間平均
+    -> # 社員テーブルとタイムカードテーブルを左外部結合したデータから取得する
     -> FROM
     -> employee AS e
     -> LEFT JOIN
     -> time_card AS t
+    -> # 社員テーブルとタイムカードテーブルを左外部結合する条件は社員IDが一致すること
     -> ON
     -> e.s_id = t.s_id
+    -> # 社員IDごとに集計する
     -> GROUP BY
     -> t.s_id
+    -> # 勤務平均時間が多い順に出力
     -> ORDER BY
     -> SUM(t.work_time) / COUNT(t.s_id) DESC
     -> ;
@@ -59,4 +64,4 @@ mysql> SELECT
 | 津村知美   |       8.4762 |
 | 相沢聡     |         NULL |
 +------------+--------------+
-16 rows in set (0.06 sec)
+16 rows in set (0.09 sec)
