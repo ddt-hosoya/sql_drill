@@ -5,7 +5,7 @@
 UPDATE INTO
 	quest
 VALUES
-	sex=REPLACE(sex, '姓', '')
+	sex=REPLACE(sex, '性', '')
 ;
 
 ■実行文
@@ -17,7 +17,7 @@ UPDATE
 	quest
 # 性別の表記を「男」「女」という表記に統一して更新する
 SET
-	sex=REPLACE(sex, '姓', '')
+	sex=REPLACE(sex, '性', '')
 ;
 
 ■確認
@@ -26,57 +26,57 @@ mysql> UPDATE
     -> quest
     -> # 性別の表記を「男」「女」という表記に統一して更新する
     -> SET
-    -> sex=REPLACE(sex, '姓', '')
+    -> sex=REPLACE(sex, '性', '')
     -> ;
-Query OK, 0 rows affected (0.00 sec)
-Rows matched: 17  Changed: 0  Warnings: 0
+Query OK, 4 rows affected (0.03 sec)
+Rows matched: 17  Changed: 4  Warnings: 0
 
 【Before】
-mysql>  select sex from quest;
-+-----+
-| sex |
-+-----+
-| 男  |
-| 女  |
-| 女  |
-| 女  |
-| 女  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 女  |
-| 男  |
-+-----+
+mysql> select id,sex from quest;
++----+------+
+| id | sex  |
++----+------+
+|  1 | 男性 |
+|  2 | 女   |
+|  3 | 女   |
+|  4 | 女性 |
+|  5 | 女   |
+|  6 | 男   |
+|  7 | 男   |
+|  8 | 男   |
+|  9 | 男   |
+| 10 | 男   |
+| 11 | 男   |
+| 12 | 男   |
+| 13 | 男   |
+| 14 | 男   |
+| 15 | 男   |
+| 16 | 女性 |
+| 17 | 男性 |
++----+------+
 17 rows in set (0.00 sec)
 
 【After】
-mysql>  select sex from quest;
-+-----+
-| sex |
-+-----+
-| 男  |
-| 女  |
-| 女  |
-| 女  |
-| 女  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 男  |
-| 女  |
-| 男  |
-+-----+
-17 rows in set (0.00 sec)
+mysql> select id,sex from quest;
++----+-----+
+| id | sex |
++----+-----+
+|  1 | 男  |
+|  2 | 女  |
+|  3 | 女  |
+|  4 | 女  |
+|  5 | 女  |
+|  6 | 男  |
+|  7 | 男  |
+|  8 | 男  |
+|  9 | 男  |
+| 10 | 男  |
+| 11 | 男  |
+| 12 | 男  |
+| 13 | 男  |
+| 14 | 男  |
+| 15 | 男  |
+| 16 | 女  |
+| 17 | 男  |
++----+-----+
+17 rows in set (0.01 sec)
