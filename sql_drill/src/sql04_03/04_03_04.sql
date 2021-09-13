@@ -9,7 +9,7 @@ ALTER TABLE
 	usr
 # sex列（VARCHAR(5)型、デフォルト値は男）を追加する
 ADD
-	sex VARCHAR(5) DEFAULT '男' NOT NULL
+	sex VARCHAR(5) DEFAULT '男'
 # sex列の追加先はf_name_kana列の後方とする
 AFTER
 	f_name_kana,
@@ -23,18 +23,23 @@ AFTER
 
 
 ■返却値
+mysql> # ユーザーテーブルの定義を変更する
 mysql> ALTER TABLE
     -> usr
+    -> # sex列（VARCHAR(5)型、デフォルト値は男）を追加する
     -> ADD
-    -> sex VARCHAR(5) DEFAULT '男' NOT NULL
+    -> sex VARCHAR(5) DEFAULT '男'
+    -> # sex列の追加先はf_name_kana列の後方とする
     -> AFTER
     -> f_name_kana,
+    -> # job列（VARCHAR(30)型）を追加する
     -> ADD
     -> job VARCHAR(30)
+    -> # job列の追加先はsex列の後方とする
     -> AFTER
     -> sex
     -> ;
-Query OK, 0 rows affected (0.32 sec)
+Query OK, 0 rows affected (0.27 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
 mysql> desc usr;
@@ -46,7 +51,7 @@ mysql> desc usr;
 | f_name      | varchar(20)  | YES  |     | NULL    |       |
 | l_name_kana | varchar(100) | YES  |     | NULL    |       |
 | f_name_kana | varchar(100) | YES  |     | NULL    |       |
-| sex         | varchar(5)   | NO   |     | 男      |       |
+| sex         | varchar(5)   | YES  |     | 男      |       |
 | job         | varchar(30)  | YES  |     | NULL    |       |
 | prefecture  | varchar(15)  | YES  | MUL | NULL    |       |
 | city        | varchar(20)  | YES  |     | NULL    |       |
@@ -54,4 +59,5 @@ mysql> desc usr;
 | tel         | varchar(20)  | YES  |     | NULL    |       |
 | email       | varchar(255) | YES  |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
-12 rows in set (0.00 sec)
+12 rows in set (0.04 sec)
+
