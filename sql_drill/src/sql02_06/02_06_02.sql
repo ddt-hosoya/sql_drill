@@ -91,3 +91,38 @@ q.name
 FROM
 quest AS q' at line 5
 mysql>
+
+
+★★★PostgreSQLでの実行結果★★★
+postgres=# SELECT
+postgres-# CONCAT(u.l_name, u.f_name)
+postgres-# FROM
+postgres-# usr AS u
+postgres-# EXCEPT ALL
+postgres-# SELECT
+postgres-# q.name
+postgres-# FROM
+postgres-# quest AS q;
+   concat
+------------
+ 村井佐知子
+ 児玉毅
+ 久保田守
+ 矢口亜由美
+ 根岸裕子
+ 河合泰治
+ 上原幸一
+ 江本聡
+ 木下一樹
+ 吉岡遥
+ 松本博美
+ 井上一郎
+ 井上一郎
+ 南沙恵
+ 西島文子
+ 坂口駿
+ 森本絵里
+ 小野雄二
+ 和田修子
+ 有木茉莉
+(20 行)

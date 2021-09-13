@@ -29,3 +29,31 @@ mysql> SELECT
 | 山田太郎 |
 +----------+
 1 row in set (0.00 sec)
+
+★★★PostgreSQLでの実行結果★★★
+SELECT
+	CONCAT(u.l_name, u.f_name) AS 氏名
+FROM
+	usr AS u
+INTERSECT
+SELECT
+	q.name AS 氏名
+FROM
+	quest AS q
+;
+
+postgres=#
+postgres=# SELECT
+postgres-# CONCAT(u.l_name, u.f_name) AS 氏名
+postgres-# FROM
+postgres-# usr AS u
+postgres-# INTERSECT
+postgres-# SELECT
+postgres-# q.name AS 氏名
+postgres-# FROM
+postgres-# quest AS q
+postgres-# ;
+   氏名
+----------
+ 山田太郎
+(1 行)
